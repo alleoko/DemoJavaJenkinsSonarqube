@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('SonarQube Test') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'echo $SONAR_AUTH_TOKEN'
+                }
+            }
+        }
+    }
+}
